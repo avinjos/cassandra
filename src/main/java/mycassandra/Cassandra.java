@@ -11,13 +11,13 @@ public class Cassandra {
 		Session session;
 
 		cluster = Cluster.builder()
-						.addContactPoint("127.0.0.1")
-						.withoutMetrics()
-						.build();
+					.addContactPoint("127.0.0.1")
+					.withoutMetrics()
+					.build();
 
 		session = cluster.connect("mastering");
 		System.out.println("creaated session " + session.getCluster().getClusterName());
-//		session.execute("INSERT into movies(movie_id,title,release_year) VALUES (uuid(),'Blade Runner 2049',2018)");
+		session.execute("INSERT into movies(movie_id,title,release_year) VALUES (uuid(),'Blade Runner 2049',2018)");
 		System.out.println("Done  , inserting .... !!");
 		session.close();
 	}
